@@ -21,7 +21,9 @@ const LoginForm = () => {
               class="space-y-4 md:space-y-6"
               onSubmit={handleSubmit(async (data) => {
                 await new Promise((r) => setTimeout(r, 1000));
-                alert(JSON.stringify(data));
+                alert(
+                  "이메일: " + data.email + "   비밀번호: " + data.password
+                );
               })}
             >
               <div>
