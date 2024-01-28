@@ -18,6 +18,7 @@ module.exports = {
       current: colors.current,
       transparent: colors.transparent,
       primary: "#9333EA",
+      primary_hover: "#6617AE",
       secondary: "#ff7e33",
       info: "#0C63E7",
       black: colors.black,
@@ -127,6 +128,7 @@ module.exports = {
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
+      typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
     },
     aspectRatio: {
       auto: "auto",
@@ -380,7 +382,7 @@ module.exports = {
       "4xl": ["2.25rem", { lineHeight: "2.5rem" }],
       "5xl": ["3rem", { lineHeight: "1" }],
       "6xl": ["3.75rem", { lineHeight: "1" }],
-      "7xl": ["4.5rem", { lineHeight: "1" }],
+      "7xl": ["4.5rem", { lineHeight: "1.5" }],
       "8xl": ["6rem", { lineHeight: "1" }],
       "9xl": ["8rem", { lineHeight: "1" }],
     },
@@ -571,6 +573,23 @@ module.exports = {
         "50%": {
           transform: "none",
           animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
+        },
+      },
+      typing: {
+        "0%": {
+          width: "0%",
+          visibility: "hidden",
+        },
+        "100%": {
+          width: "100%",
+        },
+      },
+      blink: {
+        "50%": {
+          borderColor: "transparent",
+        },
+        "100%": {
+          borderColor: "#6617AE",
         },
       },
     },
