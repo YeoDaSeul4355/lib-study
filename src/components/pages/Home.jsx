@@ -1,11 +1,12 @@
 import React from "react";
-import Contents from "../layout/Contents";
+import BannerSection from "../layout/section/BannerSection";
+
 // import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
-      <Contents></Contents>
+      <BannerSection />
     </>
   );
 };
