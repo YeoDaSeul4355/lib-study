@@ -26,8 +26,8 @@ const BannerSection = () => {
             </h1>
             <p className="mt-8 text-gray-700 dark:text-gray-300">
               리액트 라이브러리 스터디 사이트에 오신 걸 환영합니다! <br />
-              리액트 및 관련 프레임워크에 활용되는 라이브러리들을 알아보고
-              활용해보는 공간입니다.
+              리액트 및 관련 프레임워크에 활용되는 라이브러리 종류를 알아보고
+              쓰임새를 정리한 사이트입니다.
             </p>
             <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
               <Link
@@ -47,31 +47,34 @@ const BannerSection = () => {
                 </span>
               </Link>
             </div>
+
+            {/* 라이브러리 장점 */}
             <div className="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
-              <div className="text-left">
+              <div className="text-center">
                 <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
-                  The lowest price
+                  State Management
                 </h6>
-                <p className="mt-2 text-gray-500">Some text here</p>
+                <p className="mt-2 text-gray-500">상태 관리</p>
               </div>
-              <div className="text-left">
+              <div className="text-center">
                 <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
-                  The fastest on the market
+                  SPA Routing
                 </h6>
-                <p className="mt-2 text-gray-500">Some text here</p>
+                <p className="mt-2 text-gray-500">페이지 라우팅</p>
               </div>
-              <div className="text-left">
+              <div className="text-center">
                 <h6 className="text-lg font-semibold text-gray-700 dark:text-white">
-                  The most loved
+                  UI Styling
                 </h6>
-                <p className="mt-2 text-gray-500">Some text here</p>
+                <p className="mt-2 text-gray-500">UI 컴포넌트</p>
               </div>
             </div>
           </div>
+          {/* 로고 */}
           <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
-            <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
+            <div className="p-4 cursor-pointer grayscale transition duration-200 hover:grayscale-0">
               <img
-                src="./images/clients/microsoft.svg"
+                src="./images/logo/MUI.svg"
                 className="h-12 w-auto mx-auto"
                 loading="lazy"
                 alt="client logo"
@@ -79,9 +82,9 @@ const BannerSection = () => {
                 height=""
               />
             </div>
-            <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
+            <div className="p-4 cursor-pointer grayscale transition duration-200 hover:grayscale-0">
               <img
-                src="./images/clients/airbnb.svg"
+                src="./images/logo/zustand.svg"
                 className="h-12 w-auto mx-auto"
                 loading="lazy"
                 alt="client logo"
@@ -89,19 +92,9 @@ const BannerSection = () => {
                 height=""
               />
             </div>
-            <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
+            <div className="p-4 cursor-pointer grayscale transition duration-200 hover:grayscale-0">
               <img
-                src="./images/clients/google.svg"
-                className="h-9 w-auto m-auto"
-                loading="lazy"
-                alt="client logo"
-                width=""
-                height=""
-              />
-            </div>
-            <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
-              <img
-                src="./images/clients/ge.svg"
+                src="./images/logo/react_hook_form.svg"
                 className="h-12 w-auto mx-auto"
                 loading="lazy"
                 alt="client logo"
@@ -109,19 +102,29 @@ const BannerSection = () => {
                 height=""
               />
             </div>
-            <div className="p-4 flex grayscale transition duration-200 hover:grayscale-0">
+            <div className="p-4 cursor-pointer grayscale transition duration-200 hover:grayscale-0">
               <img
-                src="./images/clients/netflix.svg"
-                className="h-8 w-auto m-auto"
+                src="./images/logo/redux.svg"
+                className="h-12 w-auto mx-auto"
                 loading="lazy"
                 alt="client logo"
                 width=""
                 height=""
               />
             </div>
-            <div className="p-4 grayscale transition duration-200 hover:grayscale-0">
+            <div className="p-4 cursor-pointer grayscale transition duration-200 hover:grayscale-0">
               <img
-                src="./images/clients/google-cloud.svg"
+                src="./images/logo/antDesign.svg"
+                className="h-12 w-auto mx-auto"
+                loading="lazy"
+                alt="client logo"
+                width=""
+                height=""
+              />
+            </div>
+            <div className="p-4 cursor-pointer grayscale transition duration-200 hover:grayscale-0">
+              <img
+                src="./images/logo/swr.svg"
                 className="h-12 w-auto mx-auto"
                 loading="lazy"
                 alt="client logo"
