@@ -6,6 +6,12 @@ module.exports = {
   ],
   presets: [],
   theme: {
+    extend: {
+      backgroundImage: {
+        "react-hook-form-login":
+          "url('assets/images/project/react-hook-form-login.png')",
+      },
+    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -20,10 +26,12 @@ module.exports = {
       primary: "#9333EA",
       primary_hover: "#6617AE",
       secondary: "#ff7e33",
+      rgba: "rgba(0,0,0,0.54)",
       info: "#0C63E7",
       black: colors.black,
       white: colors.white,
       slate: colors.slate,
+
       gray: {
         50: "#FAFAFC",
         100: "#E9E9EC",
