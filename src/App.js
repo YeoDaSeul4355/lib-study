@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Home from "./components/pages/Home";
-import LoginForm from "./components/pages/react-hook-form/LoginForm";
+import Home from "./pages/Home";
+import LoginForm from "./pages/react-hook-form/LoginForm";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import Library from "./components/pages/Library";
-import Project from "./components/pages/Project";
+import Library from "./pages/Library";
+import Project from "./pages/Project";
 
 function App() {
   return (
