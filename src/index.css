@@ -17,3 +17,12 @@
       format("truetype");
   font-display: swap;
 }
+.hover-container {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.hover-container:hover {
+  transform: translateY(-20px); /* 이동하고 싶은 만큼의 거리 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Hover 시 그림자 강화 */
+}
