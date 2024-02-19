@@ -18,7 +18,7 @@ const project = () => {
       /> */}
       <SectionTitle
         pretitle="simple project"
-        title="라이브러리를  활용한  프로젝트"
+        title="라이브러리를  활용한 예제와 프로젝트"
       >
         라이브러리를 활용해 여러가지 예제, 프로젝트 등 작업한 것을
         모아놓았습니다!
@@ -34,7 +34,7 @@ const project = () => {
               로그인 기능
             </p>
             <Link
-              to="https://github.com/YeoDaSeul4355/react-lib-study/tree/main/src/components/pages/react-hook-form"
+              to="https://github.com/YeoDaSeul4355/react-lib-study/blob/main/src/pages/react-hook-form/LoginForm.jsx"
               target="_blank"
             >
               <p className="mt-8 bg-primary py-3 text-center rounded-3xl text-white transition-all duration-500 hover:bg-primary_hover">
@@ -42,22 +42,24 @@ const project = () => {
               </p>
             </Link>
           </div>
-          {/* <div className="">
-            <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-              <p className="text-2xl leading-normal ">
-                Make sure you only pick the right sentence to keep it short and
-                simple.
-              </p>
-            </div>
-          </div>
           <div className="">
-            <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-              <p className="text-2xl leading-normal ">
-                This is an landing page template I&apos;ve seen. I would use
-                this for anything.
+            <Link to="/zustand-memo">
+              <div className="flex flex-col justify-between border-2 w-full h-[300px] bg-zustand-memo bg-cover px-14 rounded-2xl py-14 dark:bg-trueGray-800 hover-container"></div>
+            </Link>
+            <p className="text-center pt-8">
+              <span className="text-primary">zustand</span>와
+              <span className="text-primary">style-components</span>을 이용한
+              메모 기능
+            </p>
+            <Link
+              to="https://github.com/YeoDaSeul4355/react-lib-study/blob/main/src/pages/react-hook-form/LoginForm.jsx"
+              target="_blank"
+            >
+              <p className="mt-8 bg-primary py-3 text-center rounded-3xl text-white transition-all duration-500 hover:bg-primary_hover">
+                코드 보기
               </p>
-            </div>
-          </div> */}
+            </Link>
+          </div>
         </div>
       </Container>
     </div>
