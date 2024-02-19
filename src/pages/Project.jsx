@@ -52,7 +52,7 @@ const project = () => {
               메모 기능
             </p>
             <Link
-              to="https://github.com/YeoDaSeul4355/react-lib-study/blob/main/src/pages/react-hook-form/LoginForm.jsx"
+              to="https://github.com/YeoDaSeul4355/react-lib-study/tree/main/src/pages/zustand-memo"
               target="_blank"
             >
               <p className="mt-8 bg-primary py-3 text-center rounded-3xl text-white transition-all duration-500 hover:bg-primary_hover">
