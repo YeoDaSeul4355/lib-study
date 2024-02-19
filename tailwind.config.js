@@ -10,6 +10,7 @@ module.exports = {
       backgroundImage: {
         "react-hook-form-login":
           "url('assets/images/project/react-hook-form-login.png')",
+        "zustand-memo": "url('assets/images/project/zustand-memo.png')",
       },
     },
     screens: {
