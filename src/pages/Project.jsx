@@ -60,6 +60,24 @@ const project = () => {
               </p>
             </Link>
           </div>
+          <div className="">
+            <Link to="/zustand-todo">
+              <div className="flex flex-col justify-between border-2 w-full h-[300px] bg-zustand-todo bg-cover px-14 rounded-2xl py-14 dark:bg-trueGray-800 hover-container"></div>
+            </Link>
+            <p className="text-center pt-8">
+              <span className="text-primary">zustand</span>와
+              <span className="text-primary">framer-motion</span>을 이용한 투두
+              리스트
+            </p>
+            <Link
+              to="https://github.com/YeoDaSeul4355/react-lib-study/tree/main/src/pages/zustand-todo"
+              target="_blank"
+            >
+              <p className="mt-8 bg-primary py-3 text-center rounded-3xl text-white transition-all duration-500 hover:bg-primary_hover">
+                코드 보기
+              </p>
+            </Link>
+          </div>
         </div>
       </Container>
     </div>
