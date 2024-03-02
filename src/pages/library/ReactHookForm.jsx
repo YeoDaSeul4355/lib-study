@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import SectionTitle from "../../components/layout/section/SectionTitle";
 import Container from "../../components/layout/Container";
 import CodeBlock from "../../utils/CodeBlock";

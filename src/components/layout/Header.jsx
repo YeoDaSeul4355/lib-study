@@ -35,7 +35,7 @@ const Header = () => {
               <div className="relative flex items-center lg:hidden max-h-10">
                 <label
                   role="button"
-                  for="toggle_nav"
+                  htmlFor="toggle_nav"
                   aria-label="humburger"
                   id="hamburger"
                   className="relative  p-6 -mr-6"

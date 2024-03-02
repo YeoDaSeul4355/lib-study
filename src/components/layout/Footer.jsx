@@ -53,8 +53,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="m-auto mt-16 w-10/12 space-y-6 text-center sm:mt-auto sm:w-5/12 sm:text-left">
-              <span class="block text-gray-500 dark:text-gray-400">
+            <div className="m-auto mt-16 w-10/12 space-y-6 text-center sm:mt-auto sm:w-5/12 sm:text-left">
+              <span className="block text-gray-500 dark:text-gray-400">
                 Copyright ⓒ 2024 jjul. All Rights Reserved.
                 <span id="year"></span>
               </span>
