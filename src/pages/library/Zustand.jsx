@@ -15,7 +15,7 @@ const Zustand = () => {
       </Container>
       <SectionTitle title="Zustand">
         Zustand는 React 내에서 상태 관리를 도와주는 라이브러리 중 하나이다. 
-        Zustand는 Redux와 비슷한 기능을 제공하지만, 더 간단하고 직관적인 API를 가지고 있습니다. 
+        Zustand는 Redux와 비슷한 기능을 제공하지만, 더 간단하고 직관적인 API를 가지고 있다. 
       </SectionTitle>
       <Container>
         <div className="font-NanumSquareNeo pt-[5%]">
@@ -74,14 +74,14 @@ function TodoList() {
 export default TodoList;`}
           ></CodeBlock>
           <p>
-            상태 관리 없이 구현한다면, 각 할 일 항목에 우선순위를 추가하는 것만으로도 <span className="text-primary">복잡성이 증가한다.</span>
+            상태 관리 없이 구현한다면, 각 할 일 항목에 우선순위를 추가하는 것만으로도 <span className="text-primary">복잡성이 증가한다.</span><br />
             우선순위가 변경될 때마다 각 항목을 <span className="text-primary">다시 렌더링해야 하며, 우선순위 변경 로직도 추가</span>해야 한다.
           </p>
 
           <h2 className="text-2xl mb-3 mt-10">💜Zustand 적용</h2>
           <p>
-            Zustand를 사용하면 상태 변경 로직을 상태 관리자 함수에 분리하여 복잡성을 줄일 수 있다.
-            보통 store.js라는 파일에 각 액션에 대한 함수들을 작성하고 import하는 방식으로 많이 쓰인다.
+            Zustand를 사용하면 상태 변경 로직을 <span className="text-primary">상태 관리자 함수에 분리</span>하여 복잡성을 줄일 수 있다.<br />
+            보통 store.js라는 파일에 각 액션에 대한 함수들을 작성하고 import하는 방식으로 많이 쓰인다.(유지보수에 용이)
           </p>
           <CodeBlock
             code={`// store.js
@@ -163,18 +163,11 @@ export default TodoList;
             code={`yarn add zustand`}
           ></CodeBlock>
 
-          <h3 className="text-xl mb-3 mt-10">1. Zustand 설치</h3>
-           <CodeBlock
-            code={`npm install zustand`}
-          ></CodeBlock>
-          <CodeBlock
-            code={`yarn add zustand`}
-          ></CodeBlock>
-
           <h3 className="text-xl mb-3 mt-10">2. 상태 및 액션 정의</h3>
           <p>Zustand를 사용하여 관리할 상태와 해당 상태를 변경하는 액션들을 정의한다. create 함수를 사용하여 Zustand 스토어를 생성하고, 이 안에서 상태와 액션들을 정의</p>
           <CodeBlock
-            code={`import create from 'zustand';
+            code={`// Todo Component
+import create from 'zustand';
 
 const useTodoStore = create((set) => ({
   todos: [],
