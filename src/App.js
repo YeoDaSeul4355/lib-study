@@ -8,8 +8,9 @@ import Library from "./pages/Library";
 import Project from "./pages/Project";
 import LoginForm from "./pages/react-hook-form/LoginForm";
 import ZustandMemo from "./pages/zustand-memo/ZustandMemo";
-import ReactHookForm from "./pages/library/ReactHookForm";
 import ZustandTodo from "./pages/zustand-todo/ZustandTodo";
+import ReactHookForm from "./pages/library/ReactHookForm";
+import ReactHookForm from "./pages/library/Zustand";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
         <Route
           path="/library/react-hook-form"
           element={<ReactHookForm />}
+        ></Route>
+        <Route
+          path="/library/zustand"
+          element={<Zustand />}
         ></Route>
         <Route path="/project" element={<Project />}></Route>
         <Route path="/react-hook-form-login" element={<LoginForm />}></Route>
