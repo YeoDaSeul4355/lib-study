@@ -10,7 +10,7 @@ import LoginForm from "./pages/react-hook-form/LoginForm";
 import ZustandMemo from "./pages/zustand-memo/ZustandMemo";
 import ZustandTodo from "./pages/zustand-todo/ZustandTodo";
 import ReactHookForm from "./pages/library/ReactHookForm";
-import ReactHookForm from "./pages/library/Zustand";
+import Zustand from "./pages/library/Zustand";
 
 function App() {
   return (
