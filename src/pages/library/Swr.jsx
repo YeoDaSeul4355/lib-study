@@ -19,194 +19,136 @@ const Swr = () => {
       </SectionTitle>
       <Container>
         <div className="font-NanumSquareNeo pt-[5%]">
-          <h2 className="text-2xl mb-3">🤔swr를 왜 써야할까?</h2>
+          <h2 className="text-2xl mb-3">🤔SWR를 왜 써야할까?</h2>
           <p className="text-gray-300">
-        
+            swr 없이 데이터 가져오기
           </p>
           <CodeBlock
-            code={`import React, { useState } from 'react';
+            code={`import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function TodoList() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: 'React 공부하기', priority: '중요', completed: false },
-    { id: 2, text: 'Zustand 써보기', priority: '보통', completed: false }
-  ]);
-
-  const toggleTodo = (id) => {
-    setTodos(todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, completed: !todo.completed };
-      }
-      return todo;
-    }));
-  };
-
-  const changePriority = (id, newPriority) => {
-    setTodos(todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, priority: newPriority };
-      }
-      return todo;
-    }));
-  };
+function MyComponent() {
+  const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get('/api/data');
+      setData(result.data);
+    };
+    
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <h2>할 일 목록</h2>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            <span onClick={() => toggleTodo(todo.id)} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-              {todo.text}
-            </span>
-            <select value={todo.priority} onChange={(e) => changePriority(todo.id, e.target.value)}>
-              <option value="낮음">낮음</option>
-              <option value="보통">보통</option>
-              <option value="중요">중요</option>
-            </select>
-          </li>
-        ))}
-      </ul>
+      {data ? (
+        <div>{data}</div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 }
-
-export default TodoList;`}
+`}
           ></CodeBlock>
           <p>
             상태 관리 없이 구현한다면, 각 할 일 항목에 우선순위를 추가하는 것만으로도 <span className="text-primary">복잡성이 증가한다.</span><br />
             우선순위가 변경될 때마다 각 항목을 <span className="text-primary">다시 렌더링해야 하며, 우선순위 변경 로직도 추가</span>해야 한다.
+            
           </p>
 
-          <h2 className="text-2xl mb-3 mt-10">💜Zustand 적용</h2>
+          <h2 className="text-2xl mb-3 mt-10">💜SWR 적용</h2>
           <p>
-            Zustand를 사용하면 상태 변경 로직을 <span className="text-primary">상태 관리자 함수에 분리</span>하여 복잡성을 줄일 수 있다.<br />
-            보통 store.js라는 파일에 각 액션에 대한 함수들을 작성하고 import하는 방식으로 많이 쓰인다.(유지보수에 용이)
+            1. <span className="text-primary">캐시 및 무효화 관리</span>: SWR은 데이터를 자동으로 캐싱하고, 데이터가 변할 때 캐시를 업데이트한다. 또한 서버로 요청을 보내고 다시 받아오는 과정을 자동으로 관리하여 앱의 성능을 최적화할 수 있다. <br />
+            2. <span className="text-primary">타임리프 요청 제어</span>: SWR은 데이터를 가져오는 빈도를 제어할 수 있다. 사용자가 페이지를 열 때마다 매번 데이터를 요청하는 대신, 일정 시간 동안 데이터를 캐시하고 그 사이에는 캐시된 데이터를 사용할 수 있도록 설정할 수 있다.<br />
+            3. <span className="text-primary">서버 사이드 렌더링 호환</span>: SWR은 서버 사이드 렌더링 (SSR)을 지원하므로, 서버 측에서도 데이터를 미리 가져와서 페이지를 렌더링할 수 있다.
           </p>
           <CodeBlock
-            code={`// store.js
-import create from 'zustand';
+            code={`import useSWR from 'swr';
 
-// 상태 관리를 위한 초기 상태 정의
-const useTodoStore = create((set) => ({
-  todos: [
-    { id: 1, text: 'React 공부하기', priority: '중요', completed: false },
-    { id: 2, text: 'Zustand 써보기', priority: '보통', completed: false }
-  ],
-  // 상태를 변경하는 액션들 정의
-  toggleTodo: (id) => {
-    set((state) => ({
-      todos: state.todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    }));
-  },
-  changePriority: (id, newPriority) => {
-    set((state) => ({
-      todos: state.todos.map(todo =>
-        todo.id === id ? { ...todo, priority: newPriority } : todo
-      )
-    }));
-  },
-  addTodo: (text, priority) => {
-    set((state) => ({
-      todos: [...state.todos, { id: Date.now(), text, priority, completed: false }]
-    }));
-  }
-}));
-
-export default useTodoStore;
-`}
-          ></CodeBlock>
-
-          <CodeBlock
-            code={`import React from 'react';
-import useTodoStore from './store';
-
-function TodoList() {
-  const todos = useTodoStore(state => state.todos);
-  const toggleTodo = useTodoStore(state => state.toggleTodo);
-  const changePriority = useTodoStore(state => state.changePriority);
-
-  return (
-    <div>
-      <h2>할 일 목록</h2>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            <span onClick={() => toggleTodo(todo.id)} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-              {todo.text}
-            </span>
-            <select value={todo.priority} onChange={(e) => changePriority(todo.id, e.target.value)}>
-              <option value="낮음">낮음</option>
-              <option value="보통">보통</option>
-              <option value="중요">중요</option>
-            </select>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+function MyComponent() {
+  const { data, error } = useSWR('/api/data', url => fetch(url).then(res => res.json()));
+  
+  if (error) return <div>Error fetching data</div>;
+  if (!data) return <div>Loading...</div>;
+  
+  return <div>{data}</div>;
 }
-
-export default TodoList;
 `}
           ></CodeBlock>
 
-          <h2 className="text-2xl mb-3 mt-10">📝Zustand 사용법</h2>
+          <h2 className="text-2xl mb-3 mt-10">📝SWR 사용법</h2>
         
-          <h3 className="text-xl mb-3 mt-10">1. Zustand 설치</h3>
+          <h3 className="text-xl mb-3 mt-10">1. SWR 설치</h3>
            <CodeBlock
-            code={`npm install zustand`}
+            code={`npm install swr`}
           ></CodeBlock>
           <CodeBlock
-            code={`yarn add zustand`}
+            code={`yarn add swr`}
           ></CodeBlock>
 
-          <h3 className="text-xl mb-3 mt-10">2. 상태 및 액션 정의</h3>
-          <p>Zustand를 사용하여 관리할 상태와 해당 상태를 변경하는 액션들을 정의한다. create 함수를 사용하여 Zustand 스토어를 생성하고, 이 안에서 상태와 액션들을 정의</p>
-          <CodeBlock
-            code={`// Todo Component
-import create from 'zustand';
+          <h3 className="text-xl mb-3 mt-10">2. key, fetcher, data, errorPermalink</h3>
+          <p>SWR을 사용할 때에는 기본적으로 key, fetcher, data, error가 쓰인다.</p>
+          <CodeBlock code={`const { data, error } = useSWR(key, fetcher);`}></CodeBlock>
 
-const useTodoStore = create((set) => ({
-  todos: [],
-  addTodo: (text) => set(state => ({ todos: [...state.todos, { id: Date.now(), text, completed: false }] })),
-  toggleTodo: (id) => set(state => ({ todos: state.todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo) }))
-}));
+          <h3 className="text-xl mb-3 mt-10">👀 key</h3>
+          <p>요청을 보낼 주소를 의미한다. "/api/data"가 해당하는 부분.</p>
+          <CodeBlock code={`const { data, error } = useSWR("/api/data", fetcher);`}></CodeBlock>
 
-export default useTodoStore;`}
-          ></CodeBlock>
+          <h3 className="text-xl mb-3 mt-10">👀 fetcher</h3>
+          <p>SWR의 핵심적인 API로써, key를 받아 데이터를 반환하는 비동기 함수이다. 이 fetcher에는 데이터 페칭에 사용되는 Axios, GraphQL 등 어떠한 라이브러리든지 사용이 가능하다.</p>
+          <CodeBlock code={`const { data, error } = useSWR("/api/data", fetcher);`}></CodeBlock>
 
-          <h3 className="text-xl mb-3 mt-10">3. 컴포넌트에서 상태 및 액션 사용</h3>
-          <p>생성한 Zustand 스토어를 필요한 컴포넌트에서 가져와 사용하는데, useStore 훅을 사용하여 상태 및 액션을 가져온다.</p>
-          <CodeBlock
-            code={`import React from 'react';
-import useTodoStore from './useTodoStore';
+          <h3 className="text-xl mb-3 mt-10">🍯 전역으로 fetcher 설정하기</h3>
+          <p>  
+            매번 fetcher를 선언해주는 것은 번거로울 수 있다. 이 번거로움을 해소하기 위해 SWR은 SWRconfig 컨텍스트를 통해 전역 fetcher를 설정할 수 있게 해준다.<br />
+            이렇게 SWRConfig로 감싸주는 컴포넌트에선 value에 전달하는 options의 내용이 전역 설정으로써 전달된다.
+          </p>
+          <CodeBlock code={`<SWRConfig value={options}>
+  <Component />
+</SWRConfig>`}></CodeBlock>
 
-function TodoList() {
-  const todos = useTodoStore(state => state.todos);
-  const addTodo = useTodoStore(state => state.addTodo);
-  const toggleTodo = useTodoStore(state => state.toggleTodo);
+          <CodeBlock code={`<SWRConfig value={options}>
+  <Component />
+</SWRConfig>`}></CodeBlock>
+
+          <h3 className="text-xl mb-3 mt-10">👀 data</h3>
+          <p>useSWR에 의해 반환된 데이터를 의미한다.</p>
+
+          <h3 className="text-xl mb-3 mt-10">👀 error</h3>
+          <p>데이터를 페칭하는 과정에서 오류가 발생할 시 반환된다.</p>
+
+          <h3 className="text-xl mb-3 mt-10">3. 실제 예시</h3>
+          <p>보통은 utils 파일에 fetcher.js를 생성해 필요한 컴포넌트에서 import해서 사용한다.</p>
+          <CodeBlock code={`// utils/fetcher.js
+
+// fetcher 유틸리티 함수 정의
+export default async function fetcher(url) {
+  const res = await fetch(url); // 네트워크 요청
+  if (!res.ok) throw new Error('Failed to fetch data'); // 에러 처리
+  return res.json(); // JSON 데이터 반환
+}`}></CodeBlock>
+          <CodeBlock code={`// HomePage.jsx
+
+import useSWR from 'swr';
+import fetcher from '../utils/fetcher'; // 데이터를 가져오는 fetcher 유틸리티 함수
+
+function HomePage() {
+  // SWR 훅을 사용하여 데이터 가져오기
+  const { data, error } = useSWR('/api/data', fetcher);
+
+  if (error) return <div>Failed to load</div>;
+  if (!data) return <div>Loading...</div>;
 
   return (
     <div>
-      <h2>할 일 목록</h2>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id} onClick={() => toggleTodo(todo.id)} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-            {todo.text}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => addTodo('새로운 할 일 추가')}>할 일 추가</button>
+      <h1>My App</h1>
+      <p>{data.message}</p>
     </div>
   );
 }
 
-export default TodoList;
-`}
-          ></CodeBlock>
+export default HomePage;`}></CodeBlock>
         </div>
       </Container>
     </div>
