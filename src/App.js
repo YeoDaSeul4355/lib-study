@@ -11,6 +11,7 @@ import ZustandMemo from "./pages/zustand-memo/ZustandMemo";
 import ZustandTodo from "./pages/zustand-todo/ZustandTodo";
 import ReactHookForm from "./pages/library/ReactHookForm";
 import Zustand from "./pages/library/Zustand";
+import Swr from "./pages/library/Swr";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
         <Route
           path="/library/zustand"
           element={<Zustand />}
+        ></Route>
+        <Route
+          path="/library/swr"
+          element={<Swr />}
         ></Route>
         <Route path="/project" element={<Project />}></Route>
         <Route path="/react-hook-form-login" element={<LoginForm />}></Route>
