@@ -187,7 +187,6 @@ await mutate('/api/comments');`}></CodeBlock>
 
           <h3 className="text-xl mb-3 mt-10">5. 옵션</h3>
           <ul>
-            
               <li className="list-disc ml-5">suspense = false: React Suspense 모드를 활성화 (상세내용)</li>
               <li className="list-disc ml-5">fetcher(args): fetcher 함수</li>
               <li className="list-disc ml-5">revalidateIfStale = true: 오래된 데이터가 있더라도 자동으로 다시 확인 (상세내용)</li>
@@ -217,7 +216,7 @@ await mutate('/api/comments');`}></CodeBlock>
               <li className="list-disc ml-5">compare(a, b): 비논리적인 리렌더러를 회피하기 위해 반환된 데이터가 변경되었는지를 감지하는데 사용하는 비교 함수. 기본적으로 stable-hash(opens in a new tab)을 사용합니다.</li>
               <li className="list-disc ml-5">isPaused(): 갱신의 중지 여부를 감지하는 함수. true가 반환될 경우 가져온 데이터와 에러는 무시합니다. 기본적으로는 false를 반환합니다.</li>
               <li className="list-disc ml-5">use: 미들웨어 함수의 배열 (상세내용)</li>
-            </li>
+            
           </ul>
         </div>
       </Container>
