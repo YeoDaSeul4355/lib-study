@@ -1,4 +1,4 @@
-# 리액트 라이브러리 스터디 사이트
+# 라이브러리 스터디 사이트
 
 Stack: react, tailwind(styling main), typescript, javascript
 
