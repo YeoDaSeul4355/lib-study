@@ -11,6 +11,7 @@ import ZustandMemo from "./pages/zustand-memo/ZustandMemo";
 import ZustandTodo from "./pages/zustand-todo/ZustandTodo";
 import ReactHookForm from "./pages/library/ReactHookForm";
 import Zustand from "./pages/library/Zustand";
+import Swr from "./pages/library/Swr";
 import Yup from "./pages/library/Yup";
 
 function App() {
