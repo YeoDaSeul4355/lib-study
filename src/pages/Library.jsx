@@ -40,7 +40,7 @@ const Library = () => {
             >
               <img
                 src="./images/logo/zustand.svg"
-                className="h-30 w-30 ml-6 mb-3 hover:scale-110 transition-all duration-300"
+                className="h-20 w-20 ml-6 mb-3 hover:scale-110 transition-all duration-300"
                 alt="client logo"
               />
             </Link>
