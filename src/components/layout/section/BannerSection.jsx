@@ -16,7 +16,7 @@ const BannerSection = () => {
         <div className="relative pt-36 ml-auto font-NanumSquareNeo">
           <div className="lg:w-2/3 text-center mx-auto">
             <h1 className="text-gray-900 dark:text-white font-bold text-3xl md:text-4xl xl:text-7xl">
-              React Library Study
+              Library Study
               <div className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-black">
                 with
                 <span className="text-primary dark:text-white">
@@ -25,8 +25,8 @@ const BannerSection = () => {
               </div>
             </h1>
             <p className="mt-8 text-gray-700 dark:text-gray-300">
-              리액트 라이브러리 스터디 사이트에 오신 걸 환영합니다! <br />
-              리액트 및 관련 프레임워크에 활용되는 라이브러리 종류를 알아보고
+              라이브러리 스터디 사이트에 오신 걸 환영합니다! <br />
+              프론트엔드 개발에 활용되는 라이브러리 종류를 알아보고
               쓰임새를 정리한 사이트입니다.
             </p>
             <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
